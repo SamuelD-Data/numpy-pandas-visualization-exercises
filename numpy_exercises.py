@@ -60,7 +60,7 @@ plus_three_positives_amount = (len(plus_three[(plus_three + 3) > 0]))
 print(f'If 3 were added to each data point, there would be {plus_three_positives_amount} positive numbers')
 
 
-# In[67]:
+# In[141]:
 
 
 # If you squared each number, what would the new mean and standard deviation be?
@@ -70,33 +70,24 @@ print(f'If 3 were added to each data point, there would be {plus_three_positives
 # import math for later use
 import math
 
-# square each number in the array
-squared = a ** 2
+# square each number in the array to make new_array aka na
+new_array = a ** 2
 
 # PART 2 - FIND NEW MEAN
 
-# use sum to get sum of all squared numbers
-sum_squared = sum(squared)
-
-# divide sum by amount of numbers to get mean
-new_mean = sum_squared / len(squared)
+# sum the squared array then divide by length of array to get the mean
+new_array_mean = sum(new_array) / len(new_array)
 
 # PART 3 - FIND NEW STANDARD DEVIATION
 
-# subtract mean from squared array
-subtract_mean_from_squared = squared - new_mean
+# subtract mean from new_array then square it
+new_array_minus_mean_squared = (new_array - new_array_mean) ** 2
 
-# square array known as subtract_mean_from_squared
-square_subtract_mean_from_squared = subtract_mean_from_squared ** 2
-
-# calc mean of array known as square_subtract_mean_from_squared
-avg_of_square_subtract_mean_from_squared = sum(square_subtract_mean_from_squared) / len(square_subtract_mean_from_squared)
-
-# calc sdev by finding square root of new mean 
-standard_dev = round(math.sqrt(avg_of_square_subtract_mean_from_squared))
+# calc rounded sdev by finding the square root of the mean of the newly squared array
+standard_dev = round(math.sqrt(sum(new_array_minus_mean_squared) / len(new_array_minus_mean_squared)),2)
 
 # Print results
-print(f'If each number were squared, the new mean would be {new_mean} and the new standard dev would be {standard_dev}.')
+print(f'If each number were squared, the new mean would be {new_array_mean} and the new standard dev would be {standard_dev}.')
 
 
 # In[86]:
@@ -114,17 +105,39 @@ centered_dataset = a - mean_of_a
 print(f'If the dataset "a" were centered, it would appear as shown below\n\n{centered_dataset}')
 
 
-# In[ ]:
+# In[109]:
 
 
 # Calculate the z-score for each data point.
 
+# import math for later use, this was done in a previous exercise but we'll do it again for demonstration
+import math
+
 # To find the z-score for each data point we need the standard dev and mean of the data set
 
-#STEP 1 - FIND MEAN
+# STEP 1 - FIND MEAN
 
-# 
+# calc mean using sum and len to divide sum of array by length of array
 mean_of_a = sum(a) / len(a)
+
+# STEP 2 - FIND STANDARD DEVIATION
+
+# subtract mean from each data point then square each data point
+sub_mean_from_a = (a - mean_of_a) ** 2
+
+# find mean of newly squared array
+new_mean = sum(sub_mean_from_a) / len(sub_mean_from_a)
+
+# calc square root of the new mean to find the standard deviation
+standard_deviation = math.sqrt(new_mean)
+
+# STEP 3 - FIND Z SCORE 
+
+# subtract mean from each data point then divide each data point by the sdev of the data set
+zscores = (a - mean_of_a) / standard_deviation
+
+# display results 
+print(f'The zscores of the original array are shown below\n\n {zscores}')
 
 
 # In[ ]:
