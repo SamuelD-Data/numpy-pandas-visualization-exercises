@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[66]:
+# In[15]:
 
 
 import numpy as np
@@ -140,28 +140,178 @@ zscores = (a - mean_of_a) / standard_deviation
 print(f'The zscores of the original array are shown below\n\n {zscores}')
 
 
+# In[21]:
+
+
+# MORE NUMPY PRACTICE EXERCISES - SECTION 1
+
+# SETUP
+# changing array name to b 
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+# In[22]:
+
+
+# Exercise 1 - Make a variable called sum_of_b to hold the sum of all the numbers in above list
+
+sum_of_a = sum(a)
+
+print(sum_of_a)
+
+
+# In[23]:
+
+
+# Exercise 2 - Make a variable named min_of_a to hold the minimum of all the numbers in the above list
+
+min_of_a = min(a)
+
+print(min_of_a)
+
+
+# In[24]:
+
+
+# Exercise 3 - Make a variable named max_of_a to hold the max number of all the numbers in the above list
+
+max_of_a = max(a)
+
+print(max_of_a)
+
+
+# In[31]:
+
+
+# Exercise 4 - Make a variable named mean_of_a to hold the average of all the numbers in the above list
+
+mean_of_a = sum(a) / len(a)
+
+print(mean_of_a)
+
+
+# In[35]:
+
+
+# Exercise 5 - Make a variable named product_of_a to hold the product of multiplying all the numbers in the above list together
+
+prod_of_a = 1
+
+for x in a:
+    prod_of_a *= x
+
+print(prod_of_a)
+
+
+# In[47]:
+
+
+# Exercise 6 - Make a variable named squares_of_a. It should hold each number in a squared like [1, 4, 9, 16, 25...]
+
+squared = [x ** 2 for x in a]
+
+print(squared)
+
+
+# In[50]:
+
+
+# Exercise 7 - Make a variable named odds_in_a. It should hold only the odd numbers
+
+odds_in_a = [x for x in a if x % 2 == 1]
+
+print(odds_in_a)
+
+
+# In[52]:
+
+
+# Exercise 8 - Make a variable named evens_in_a. It should hold only the evens.
+
+evens_in_a = [x for x in a if x % 2 == 0 and x != 0]
+
+print(evens_in_a)
+
+
+# In[62]:
+
+
+## What about life in two dimensions? A list of lists is matrix, a table, a spreadsheet, a chessboard...
+## Setup 2: Consider what it would take to find the sum, min, max, average, sum, product, and list of squares for this list of two lists.
+
+b = [
+    [3, 4, 5],
+    [6, 7, 8]
+]
+
+
+# In[65]:
+
+
+# sum of b
+
+total = sum([sum(x) for x in b])
+
+print(total)
+
+
+# In[74]:
+
+
+# min of b
+
+row_minimum = []
+
+for x in b:
+    row_minimum.append(min(x))
+    
+overall_minimum = min(row_minimum)
+    
+print (overall_minimum)
+
+
+# In[76]:
+
+
+# max of b
+
+row_maximum = []
+
+for x in b:
+    row_maximum.append(max(x))
+    
+overall_maximum = max(row_maximum)
+    
+print (overall_maximum)
+
+
+# In[81]:
+
+
+# average of b
+
+one_row = []
+
+for x in b:
+    for i in x:
+        one_row.append(i)
+        
+average = sum(one_row) / len(one_row)
+    
+print(average)
+    
+
+
 # In[ ]:
 
 
-
-
-
-# In[ ]:
-
-
-
+# product of b
 
 
 # In[ ]:
 
 
-
-
-
-# In[ ]:
-
-
-
+# list of squares of b
 
 
 # In[ ]:
