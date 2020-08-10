@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[210]:
+# In[299]:
 
 
 import numpy as np
@@ -62,8 +62,6 @@ print(f'If 3 were added to each data point, there would be {plus_three_positives
 
 # If you squared each number, what would the new mean and standard deviation be?
 
-# PART 1 - SQUARE EACH NUMBER IN ORIGINAL ARRAY
-
 # square the array via numpy then round
 squared_array_mean_via_nmpy = round(np.average(a ** 2),2)
 
@@ -89,29 +87,21 @@ centered_dataset = a - mean_of_a
 print(f'If the dataset "a" were centered, it would appear as shown below\n\n{centered_dataset}')
 
 
-# In[217]:
+# In[287]:
 
 
 # Calculate the z-score for each data point.
 
-# import math for later use, this was done in a previous exercise but we'll do it again for demonstration
-import math
-
 # To find the z-score for each data point we need the standard dev and mean of the data set
-
-# STEP 1 - FIND MEAN
 
 # calc mean using numpy average
 mean_of_a = np.average(a)
 
-# STEP 2 - FIND STANDARD DEVIATION
-
 # find sdev using numpy std
 standard_deviation = np.std(a)
 
-# STEP 3 - FIND Z SCORE 
 
-# subtract mean from each data point then divide each data point by the sdev of the data set
+# find zscores by subtracting mean from each data point then divide each data point by the sdev of the data set
 zscores = (a - mean_of_a) / (standard_deviation)
 
 # display results 
@@ -125,7 +115,8 @@ print(f'The zscores of the original array are shown below\n\n {zscores}')
 
 # LIFE WITHOUT NUMPY
 
-# SETUP
+# SETUP 1
+
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
@@ -231,7 +222,7 @@ evens_in_a = [x for x in a if x % 2 == 0 and x != 0]
 print(evens_in_a)
 
 
-# In[227]:
+# In[324]:
 
 
 # ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -244,7 +235,9 @@ print(evens_in_a)
 # we're going to find them anyway in the cells below
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-# LIFE WITHOUT NUMPY
+# LIFE WITHOUT NUMPY - continued
+
+# SETUP 2
 
 b = [
     [3, 4, 5],
@@ -347,28 +340,53 @@ print(total_product)
     
 
 
-# In[233]:
+# In[336]:
 
 
 # list of squares of b
 
-# use list iteration to iterate over each number and square them then store as variable
-squares = [i ** 2 for x in b for i in x]
+# create empty lists to store squared lists
+square1 = []
+square2 = []
+
+# iterate over first row of b
+for i in b[0]:
+    # square each number, store in list
+    square1.append(i**2)
+# iterate over second row of b
+for i in b[1]:
+    # square each number, store in list
+    square2.append(i**2)
+
+# create third empty list
+square3 = []
+
+# append both of the previous lists to create a new list that holds 2 lists
+square3.append(square1)
+square3.append(square2)
 
 # display results
-print(squares)
+print(square1)
+print(square2)
+print(square3)
 
 
-# In[234]:
+# In[283]:
 
 
 # ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# SETUP 3
 
 # convert b to numpy array using array
 b = np.array([
     [3, 4, 5],
     [6, 7, 8]
 ])
+
+
+# In[284]:
+
 
 """
 Exercise 1 - refactor the following to use numpy. Use sum_of_b as the variable. **Hint, you'll first need to make sure that the "b" variable is a numpy array**
@@ -382,7 +400,7 @@ for row in b:
 sum_of_b = np.sum(b)
 
 # print results
-print(sum_of_b)
+print()
 
 
 # In[235]:
@@ -559,12 +577,12 @@ b_reshape_six_lists = b.reshape(6,1)
 print(b_reshape_six_lists)
 
 
-# In[246]:
+# In[282]:
 
 
 # ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-## Setup 3
+## Setup 4
 
 # use array to convert c to numpy array
 c = np.array([
@@ -574,6 +592,10 @@ c = np.array([
 ])
 
 # HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
+
+
+# In[281]:
+
 
 # Exercise 1 - Find the min, max, sum, and product of c.
 
@@ -680,10 +702,145 @@ prod_c_times_c_transposed = np.prod(c * (np.transpose(c)))
 print(prod_c_times_c_transposed)
 
 
-# In[ ]:
+# In[303]:
 
 
+# ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 5 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# Setup 5
+
+# covert array to numpy array
+d = np.array([
+    [90, 30, 45, 0, 120, 180],
+    [45, -90, -30, 270, 90, 0],
+    [60, 45, -45, 90, -45, 180]
+])
+
+
+# In[304]:
+
+
+# Exercise 1 - Find the sine of all the numbers in d
+
+# find sine for each numbers using numpy sin, store as variable
+sin_d = np.sin(d)
+
+# display results
+print(sin_d)
+
+
+# In[305]:
+
+
+# Exercise 2 - Find the cosine of all the numbers in d
+
+# find cosine for each number using numpy cos, store as variable
+cos_d = np.cos(d)
+
+# display results
+print(cos_d)
+
+
+# In[306]:
+
+
+# Exercise 3 - Find the tangent of all the numbers in d
+
+# find tangent of all numbers in d using numpy tan
+tan_d = np.tan(d)
+
+# display results
+print(tan_d)
+
+
+# In[308]:
+
+
+# Exercise 4 - Find all the negative numbers in d
+
+# numpy to create list of negative numbers from array
+negative_d = d[d < 0]
+
+# display results
+print(negative_d)
+
+
+# In[348]:
+
+
+# Exercise 5 - Find all the positive numbers in d
+
+# use numpy to create an array that contains all positive number in d
+positive_d = d[d > 0]
+
+# display results
+print(positive_d)
+
+
+# In[312]:
+
+
+# Exercise 6 - Return an array of only the unique numbers in d.
+
+# use numpy unique to create array of unique values in d and store as variable 
+unique_d = np.unique(d)
+
+# display results
+print(unique_d)
+
+
+# In[314]:
+
+
+# Exercise 7 - Determine how many unique numbers there are in d.
+
+# use np unique to count unique values in d then use len to count amount of unique numbers 
+unique_d_count = len(np.unique(d))
+
+# display results
+print(unique_d_count)
+
+
+# In[315]:
+
+
+# Exercise 8 - Print out the shape of d.
+
+# use numpy shape to gather dimensions of d and store as variable
+d_shape = np.shape(d)
+
+# display results
+print(d_shape)
+
+
+# In[341]:
+
+
+# Exercise 9 - Transpose and then print out the shape of d.
+
+# use numpy transpose to transpose d and store as variable
+transpose_d = np.transpose(d)
+
+#use numpy shape to get dimensions of transposed array and store as variable
+transpose_d_shape = np.shape(transpose_d)
+
+# display results
+print(f'Once transposed, d will have a shape of {transpose_d_shape} and look as shown below\n')
+
+# display results
+print(transpose_d)
+
+
+# In[346]:
+
+
+# Exercise 10 - Reshape d into an array of 9 x 2
+
+# numpy reshape to change dimensions of array to 9x2 and store as variable
+d_reshape = d.reshape(9,2)
+
+# display results
+print(d_reshape)
 
 
 # In[ ]:
