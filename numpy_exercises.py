@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[299]:
+# In[416]:
 
 
 import numpy as np
@@ -9,7 +9,7 @@ import numpy as np
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
 
 
-# In[211]:
+# In[417]:
 
 
 # How many negative numbers are there?
@@ -21,7 +21,7 @@ amount_of_negative_numbers = len(a[a < 0])
 print(f'There are {amount_of_negative_numbers} negative numbers in the array')
 
 
-# In[212]:
+# In[418]:
 
 
 # How many positive numbers are there?
@@ -33,19 +33,18 @@ amount_of_positive_numbers = len(a[a > 0])
 print(f'There are {amount_of_positive_numbers} positive numbers in the array')
 
 
-# In[213]:
+# In[419]:
 
 
 # How many even positive numbers are there?
 
 # use len and numpy to count how many positive even numbers there are
-# must use & instead of and in order for this syntax to work
 amount_of_positive_even_numbers = len(a[(a > 0) & (a % 2 == 0)])
 
 print(f'The amount of positive even numbers in the array is {amount_of_positive_even_numbers}')
 
 
-# In[214]:
+# In[420]:
 
 
 # If you were to add 3 to each data point, how many positive numbers would there be?
@@ -57,7 +56,7 @@ plus_three_positives_amount = len(a[(a + 3) > 0])
 print(f'If 3 were added to each data point, there would be {plus_three_positives_amount} positive numbers')
 
 
-# In[215]:
+# In[421]:
 
 
 # If you squared each number, what would the new mean and standard deviation be?
@@ -72,12 +71,12 @@ squared_array_standard_dev_via_nmpy = round(np.std(a ** 2),2)
 print(f'If each number were squared, the new mean would be {squared_array_mean_via_nmpy} and the new standard dev would be {squared_array_standard_dev_via_nmpy}.')
 
 
-# In[216]:
+# In[422]:
 
 
 # Center the dataset
 
-# calc mean
+# calc mean using numpy average
 mean_of_a = np.average(a)
 
 # subtract mean from each data point
@@ -87,7 +86,7 @@ centered_dataset = a - mean_of_a
 print(f'If the dataset "a" were centered, it would appear as shown below\n\n{centered_dataset}')
 
 
-# In[287]:
+# In[423]:
 
 
 # Calculate the z-score for each data point.
@@ -100,7 +99,6 @@ mean_of_a = np.average(a)
 # find sdev using numpy std
 standard_deviation = np.std(a)
 
-
 # find zscores by subtracting mean from each data point then divide each data point by the sdev of the data set
 zscores = (a - mean_of_a) / (standard_deviation)
 
@@ -108,7 +106,7 @@ zscores = (a - mean_of_a) / (standard_deviation)
 print(f'The zscores of the original array are shown below\n\n {zscores}')
 
 
-# In[218]:
+# In[424]:
 
 
 #~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,7 +118,7 @@ print(f'The zscores of the original array are shown below\n\n {zscores}')
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
-# In[219]:
+# In[425]:
 
 
 # Exercise 1 - Make a variable called sum_of_a to hold the sum of all the numbers in above list
@@ -132,7 +130,7 @@ sum_of_a = sum(a)
 print(sum_of_a)
 
 
-# In[220]:
+# In[426]:
 
 
 # Exercise 2 - Make a variable named min_of_a to hold the minimum of all the numbers in the above list
@@ -144,7 +142,7 @@ min_of_a = min(a)
 print(min_of_a)
 
 
-# In[221]:
+# In[427]:
 
 
 # Exercise 3 - Make a variable named max_of_a to hold the max number of all the numbers in the above list
@@ -156,7 +154,7 @@ max_of_a = max(a)
 print(max_of_a)
 
 
-# In[222]:
+# In[428]:
 
 
 # Exercise 4 - Make a variable named mean_of_a to hold the average of all the numbers in the above list
@@ -168,7 +166,7 @@ mean_of_a = sum(a) / len(a)
 print(mean_of_a)
 
 
-# In[223]:
+# In[429]:
 
 
 # Exercise 5 - Make a variable named product_of_a to hold the product of multiplying all the numbers in the above list together
@@ -176,7 +174,7 @@ print(mean_of_a)
 # create variable with value of 1
 prod_of_a = 1
 
-#iterate through a
+# iterate through a
 for x in a:
     # multiply prod_of_a by each number in a and store for later
     prod_of_a *= x
@@ -185,7 +183,7 @@ for x in a:
 print(prod_of_a)
 
 
-# In[224]:
+# In[430]:
 
 
 # Exercise 6 - Make a variable named squares_of_a. It should hold each number in a squared like [1, 4, 9, 16, 25...]
@@ -197,7 +195,7 @@ squared = [x ** 2 for x in a]
 print(squared)
 
 
-# In[225]:
+# In[431]:
 
 
 # Exercise 7 - Make a variable named odds_in_a. It should hold only the odd numbers
@@ -209,7 +207,7 @@ odds_in_a = [x for x in a if x % 2 == 1]
 print(odds_in_a)
 
 
-# In[226]:
+# In[432]:
 
 
 # Exercise 8 - Make a variable named evens_in_a. It should hold only the evens.
@@ -222,7 +220,7 @@ evens_in_a = [x for x in a if x % 2 == 0 and x != 0]
 print(evens_in_a)
 
 
-# In[324]:
+# In[433]:
 
 
 # ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -245,7 +243,7 @@ b = [
 ]
 
 
-# In[228]:
+# In[434]:
 
 
 # sum of b
@@ -257,7 +255,7 @@ total = sum([sum(x) for x in b])
 print(total)
 
 
-# In[229]:
+# In[435]:
 
 
 # min of b
@@ -277,7 +275,7 @@ overall_minimum = min(row_minimum)
 print (overall_minimum)
 
 
-# In[230]:
+# In[436]:
 
 
 # max of b
@@ -297,7 +295,7 @@ overall_maximum = max(row_maximum)
 print (overall_maximum)
 
 
-# In[231]:
+# In[437]:
 
 
 # average of b
@@ -312,7 +310,7 @@ for x in b:
         # store each number in new list so that we now have 1 list of numbers
         one_row.append(i)
 
-# divide sum of number by len of numbers to calc average
+# divide sum of numbers by len of numbers to calc average
 average = sum(one_row) / len(one_row)
 
 # display results
@@ -320,7 +318,7 @@ print(average)
     
 
 
-# In[232]:
+# In[438]:
 
 
 # product of b
@@ -332,7 +330,7 @@ total_product = 1
 for x in b:
     # iterate through each number in each row
     for i in x:
-        # keep a running total that gets multiplied by each number
+        # keep a running total that gets multiplied by each number in the array
         total_product *= i
 
 # display results        
@@ -340,7 +338,7 @@ print(total_product)
     
 
 
-# In[336]:
+# In[439]:
 
 
 # list of squares of b
@@ -361,17 +359,15 @@ for i in b[1]:
 # create third empty list
 square3 = []
 
-# append both of the previous lists to create a new list that holds 2 lists
+# append both of the previous lists to create a new list that holds 2 lists in order to preserve original form of array
 square3.append(square1)
 square3.append(square2)
 
 # display results
-print(square1)
-print(square2)
 print(square3)
 
 
-# In[283]:
+# In[440]:
 
 
 # ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -385,7 +381,7 @@ b = np.array([
 ])
 
 
-# In[284]:
+# In[441]:
 
 
 """
@@ -403,7 +399,7 @@ sum_of_b = np.sum(b)
 print()
 
 
-# In[235]:
+# In[442]:
 
 
 """
@@ -419,7 +415,7 @@ min_of_b = np.min(b)
 print(min_of_b)
 
 
-# In[236]:
+# In[443]:
 
 
 """
@@ -435,7 +431,7 @@ max_of_b = np.max(b)
 print(max_of_b)
 
 
-# In[254]:
+# In[444]:
 
 
 """
@@ -444,14 +440,14 @@ print(max_of_b)
 # mean_of_b = (sum(b[0]) + sum(b[1])) / (len(b[0]) + len(b[1]))
 """
 
-# refactored to find average by dividing sum of b (found via sum) by the amount of numbers of b (found via size )
+# refactored to find average via numpy average
 mean_of_b = np.average(b)
 
 # display results
 print(mean_of_b)
 
 
-# In[238]:
+# In[445]:
 
 
 """
@@ -470,7 +466,7 @@ product_of_b = np.prod(b)
 print(product_of_b)
 
 
-# In[255]:
+# In[446]:
 
 
 """
@@ -489,7 +485,7 @@ squares_of_b = np.square(b)
 print(squares_of_b)
 
 
-# In[258]:
+# In[447]:
 
 
 """
@@ -502,14 +498,14 @@ for row in b:
             odds_in_b.append(number)
 """
 
-# refactoring using numpy to create list with only odds
+# refactoring using numpy to create list with only odds by filtering out numbers that if divided by 2, will not have a remainder of 0
 odds_in_b = b[(b % 2 != 0)]
 
 # display results
 print(odds_in_b)
 
 
-# In[241]:
+# In[448]:
 
 
 """
@@ -522,14 +518,15 @@ for row in b:
             evens_in_b.append(number)
 """
 
-# refactored using numpy to filter even numbers, although 0 is not in array, its filtered out for completion sake
+# refactored using numpy to filter in even numbers ie. numbers that if divided by 2 would have a remainder of 0
+# although 0 is not in array, its filtered out for completion sake
 evens_in_b = b[(b % 2 == 0) & (b != 0)]
 
 # display results
 print(evens_in_b)
 
 
-# In[242]:
+# In[449]:
 
 
 # Exercise 9 - print out the shape of the array b.
@@ -541,7 +538,7 @@ shape_of_b = b.shape
 print(shape_of_b)
 
 
-# In[243]:
+# In[450]:
 
 
 # Exercise 10 - transpose the array b.
@@ -553,7 +550,7 @@ b_transpose = np.transpose(b)
 print(b_transpose)
 
 
-# In[244]:
+# In[451]:
 
 
 # Exercise 11 - reshape the array b to be a single list of 6 numbers. (1 x 6)
@@ -565,7 +562,7 @@ b_reshape_one_list = b.reshape(1,6)
 print(b_reshape_one_list)
 
 
-# In[245]:
+# In[452]:
 
 
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
@@ -577,7 +574,7 @@ b_reshape_six_lists = b.reshape(6,1)
 print(b_reshape_six_lists)
 
 
-# In[282]:
+# In[453]:
 
 
 # ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -594,31 +591,31 @@ c = np.array([
 # HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
 
 
-# In[281]:
+# In[454]:
 
 
 # Exercise 1 - Find the min, max, sum, and product of c.
 
-# using numpy min, max, sum, and prod to get their respective values from c
+# using numpy min to find min of c 
 minimum_c = np.min(c)
 
+# using numpy max to find max of c
 maximum_c = np.max(c)
 
+# using numpy sum to find sum of c
 total_c = np.sum(c)
 
+# using numpy prod to find product of c
 product_c = np.prod(c)
 
 # printing results
 print(f'The min of c is {minimum_c}')
-
 print(f'The max of c is {maximum_c}')
-
 print(f'The sum of c is {total_c}')
-
 print(f'The product of c is {product_c}')
 
 
-# In[263]:
+# In[455]:
 
 
 # Exercise 2 - Determine the standard deviation of c.
@@ -630,7 +627,7 @@ standard_dev_c = round(np.std(c),2)
 print(standard_dev_c)
 
 
-# In[265]:
+# In[456]:
 
 
 # Exercise 3 - Determine the variance of c.
@@ -642,7 +639,7 @@ variance_c = round(np.var(c),2)
 print(variance_c)
 
 
-# In[267]:
+# In[457]:
 
 
 # Exercise 4 - Print out the shape of the array c
@@ -654,7 +651,7 @@ shape_c = np.shape(c)
 print(shape_c)
 
 
-# In[272]:
+# In[458]:
 
 
 # Exercise 5 - Transpose c and print out transposed result.
@@ -666,7 +663,7 @@ transposed_c = np.transpose(c)
 print(transposed_c)
 
 
-# In[271]:
+# In[459]:
 
 
 # Exercise 6 - Get the dot product of the array c with c. 
@@ -678,7 +675,7 @@ dot_c = np.dot(c, c)
 print(dot_c)
 
 
-# In[275]:
+# In[460]:
 
 
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
@@ -690,7 +687,7 @@ sum_c_times_c_transposed = np.sum(c * (np.transpose(c)))
 print(sum_c_times_c_transposed)
 
 
-# In[277]:
+# In[461]:
 
 
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
@@ -702,7 +699,7 @@ prod_c_times_c_transposed = np.prod(c * (np.transpose(c)))
 print(prod_c_times_c_transposed)
 
 
-# In[303]:
+# In[462]:
 
 
 # ~~~~~~~~~~~~~~~~~~~~ MORE NUMPY PRACTICE EXERCISES - SECTION 5 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -717,7 +714,7 @@ d = np.array([
 ])
 
 
-# In[304]:
+# In[463]:
 
 
 # Exercise 1 - Find the sine of all the numbers in d
@@ -729,7 +726,7 @@ sin_d = np.sin(d)
 print(sin_d)
 
 
-# In[305]:
+# In[464]:
 
 
 # Exercise 2 - Find the cosine of all the numbers in d
@@ -741,7 +738,7 @@ cos_d = np.cos(d)
 print(cos_d)
 
 
-# In[306]:
+# In[465]:
 
 
 # Exercise 3 - Find the tangent of all the numbers in d
@@ -753,19 +750,19 @@ tan_d = np.tan(d)
 print(tan_d)
 
 
-# In[308]:
+# In[466]:
 
 
 # Exercise 4 - Find all the negative numbers in d
 
-# numpy to create list of negative numbers from array
+# using numpy to create list of negative numbers from array
 negative_d = d[d < 0]
 
 # display results
 print(negative_d)
 
 
-# In[348]:
+# In[467]:
 
 
 # Exercise 5 - Find all the positive numbers in d
@@ -777,7 +774,7 @@ positive_d = d[d > 0]
 print(positive_d)
 
 
-# In[312]:
+# In[468]:
 
 
 # Exercise 6 - Return an array of only the unique numbers in d.
@@ -789,7 +786,7 @@ unique_d = np.unique(d)
 print(unique_d)
 
 
-# In[314]:
+# In[469]:
 
 
 # Exercise 7 - Determine how many unique numbers there are in d.
@@ -801,7 +798,7 @@ unique_d_count = len(np.unique(d))
 print(unique_d_count)
 
 
-# In[315]:
+# In[470]:
 
 
 # Exercise 8 - Print out the shape of d.
@@ -813,7 +810,7 @@ d_shape = np.shape(d)
 print(d_shape)
 
 
-# In[341]:
+# In[471]:
 
 
 # Exercise 9 - Transpose and then print out the shape of d.
@@ -826,12 +823,11 @@ transpose_d_shape = np.shape(transpose_d)
 
 # display results
 print(f'Once transposed, d will have a shape of {transpose_d_shape} and look as shown below\n')
-
 # display results
 print(transpose_d)
 
 
-# In[346]:
+# In[472]:
 
 
 # Exercise 10 - Reshape d into an array of 9 x 2
@@ -841,30 +837,6 @@ d_reshape = d.reshape(9,2)
 
 # display results
 print(d_reshape)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:
