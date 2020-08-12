@@ -214,7 +214,7 @@ print(odds_in_a)
 
 # use list iteration to find each even number in a and store as variable
 # 0 is not in a but we're adding code to exclude it for demonstration purposes
-evens_in_a = [x for x in a if x % 2 == 0 and x != 0]
+evens_in_a = [x for x in a if x % 2 == 0]
 
 # display results
 print(evens_in_a)
@@ -520,7 +520,7 @@ for row in b:
 
 # refactored using numpy to filter in even numbers ie. numbers that if divided by 2 would have a remainder of 0
 # although 0 is not in array, its filtered out for completion sake
-evens_in_b = b[(b % 2 == 0) & (b != 0)]
+evens_in_b = b[b % 2 == 0]
 
 # display results
 print(evens_in_b)
